@@ -1,6 +1,9 @@
 import re
+import time
+
 YEAR = 2023
 DAY = 3
+start_time = time.time()
 
 def get_directions(row, start, end, max_row, max_col):
     dirs = []
@@ -42,7 +45,7 @@ with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
             if check_part(directions):
                 res += int(n)
             line = line.replace(n, '.' * len(n), 1)
-    print(f"{YEAR} {DAY} part 1 Result: {res}")
+    print(f"{YEAR} {DAY} part 1 Result: {res} in {time.time() - start_time} s")
 
 # part 2
 def check_gear(directions, n):
@@ -72,4 +75,4 @@ with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
     for k in gears:
         if len(gears[k]) == 2:
             res += gears[k][0] * gears[k][1]
-    print(f"{YEAR} {DAY} part 2 Result: {res}")
+    print(f"{YEAR} {DAY} part 2 Result: {res} in {time.time() - start_time} s")

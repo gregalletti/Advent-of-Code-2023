@@ -1,5 +1,8 @@
+import time
+
 YEAR = 2023
 DAY = 1
+start_time = time.time()
 
 # part 1
 numbers = {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
@@ -20,7 +23,7 @@ with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
         calibration = numbers[left] * 10 + numbers[right]
         left = ""
         res += calibration
-    print(f"{YEAR} {DAY} part 1 Result: {res}")
+    print(f"{YEAR} {DAY} part 1 Result: {res} in {time.time() - start_time} s")
 
 # part 2 - just change the dict
 numbers = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9}
@@ -41,4 +44,4 @@ with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
         calibration = numbers[left] * 10 + numbers[right]
         left = ""
         res += calibration
-    print(f"{YEAR} {DAY} part 2 Result: {res}")
+    print(f"{YEAR} {DAY} part 2 Result: {res} in {time.time() - start_time} s")
