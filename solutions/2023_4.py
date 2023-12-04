@@ -1,5 +1,6 @@
 import re
 import time
+from utils import print_1, print_2
 
 YEAR = 2023
 DAY = 4
@@ -20,7 +21,8 @@ with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
                 else:
                     score = 1
         res += score
-    print(f"{YEAR} {DAY} part 1 Result: {res} in {time.time() - start_time} s")
+    print(f"{YEAR}-{DAY} PART 1 in {time.time() - start_time} s")
+    print_1(res)
 
 # part 2
 with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
@@ -36,4 +38,5 @@ with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
         for j in range(i+1, i+score+1):
             counter[j] += counter[i]
     res = sum(counter)
-    print(f"{YEAR} {DAY} part 2 Result: {res} in {time.time() - start_time} s")
+    print(f"{YEAR}-{DAY} PART 2 in {time.time() - start_time} s")
+    print_2(res)
