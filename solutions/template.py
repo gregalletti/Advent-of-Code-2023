@@ -11,6 +11,8 @@ if not os.path.isfile(path):
     download_input(YEAR, DAY)
 
 # part 1
+
+
 with open(path) as f:
     input = (f.read().splitlines())
     res = 0
@@ -19,6 +21,8 @@ with open(path) as f:
     print_1(res)
 
 # part 2
+
+
 with open(path) as f:
     input = (f.read().splitlines())
     res = 0
