@@ -15,8 +15,8 @@ def download_input(year, day):
     with open(f"./inputs/{year}_{day}.txt", "w" ) as f:
         f.write(r.text)
 
-def print_1(text):
+def print_blue(text):
     print(f"{bcolors.OKCYAN}{text}{bcolors.ENDC}")
 
-def print_2(text):
+def print_purple(text):
     print(f"{bcolors.OKPURPLE}{text}{bcolors.ENDC}")

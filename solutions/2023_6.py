@@ -1,5 +1,5 @@
 import time
-from utils import print_1, print_2, download_input
+from utils import print_blue, print_purple, download_input
 import os.path
 import re
 
@@ -47,8 +47,8 @@ def part_2():
 with open(path) as f:
     input = (f.read().splitlines())
     
-    print(f"{YEAR}-{DAY} PART 1 in {time.time() - start_time} s")
-    print_1(part_1())
-    
-    print(f"{YEAR}-{DAY} PART 2 in {time.time() - start_time} s")
-    print_2(part_2())
+    print_blue(part_1())
+    print(f"Completed {YEAR}-{DAY} PART 1 in {time.time() - start_time} s\n")
+
+    print_purple(part_2())
+    print(f"Completed {YEAR}-{DAY} PART 2 in {time.time() - start_time} s")

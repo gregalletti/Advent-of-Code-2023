@@ -1,7 +1,7 @@
 import re
 import math
 import time
-from utils import print_1, print_2
+from utils import print_blue, print_purple
 
 # setup
 YEAR = 2023
@@ -38,8 +38,8 @@ def part_2():
 with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
     input = (f.read().splitlines())
     
-    print(f"{YEAR}-{DAY} PART 1 in {time.time() - start_time} s")
-    print_1(part_1())
+    print_blue(part_1())
+    print(f"Completed {YEAR}-{DAY} PART 1 in {time.time() - start_time} s\n")
     
-    print(f"{YEAR}-{DAY} PART 2 in {time.time() - start_time} s")
-    print_2(part_2())
+    print_purple(part_2())
+    print(f"Completed {YEAR}-{DAY} PART 2 in {time.time() - start_time} s")

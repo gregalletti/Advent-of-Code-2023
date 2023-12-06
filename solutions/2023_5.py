@@ -1,5 +1,5 @@
 import time
-from utils import print_1, print_2, download_input
+from utils import print_blue, print_purple, download_input
 import os.path
 
 # setup
@@ -78,8 +78,8 @@ with open(path) as f:
 
     seeds, all_maps = parse_input()
     
-    print(f"{YEAR}-{DAY} PART 1 in {time.time() - start_time} s")
-    print_1(min(part_1()))
+    print_blue(min(part_1()))
+    print(f"Completed {YEAR}-{DAY} PART 1 in {time.time() - start_time} s\n")
 
-    print(f"{YEAR}-{DAY} PART 2 in {time.time() - start_time} s")
-    print_2(min(r[0] for r in part_2()))
+    print_purple(min(r[0] for r in part_2()))
+    print(f"Completed {YEAR}-{DAY} PART 2 in {time.time() - start_time} s")
