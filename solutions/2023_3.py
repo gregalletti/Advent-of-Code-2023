@@ -2,10 +2,12 @@ import re
 import time
 from utils import print_1, print_2
 
+# setup
 YEAR = 2023
 DAY = 3
 start_time = time.time()
 
+# common
 def get_directions(row, start, end, max_row, max_col):
     dirs = []
     # left
@@ -34,8 +36,7 @@ def check_part(directions):
             return True
     return False
 
-with open(f"./inputs/{YEAR}_{DAY}.txt") as f:
-    input = (f.read().splitlines())
+def part_1():
     res = 0
     for row, line in enumerate(input):
         numbers = re.findall("([0-9]+)", line)
@@ -46,8 +47,7 @@ with open(f"./inputs/{YEAR}_{DAY}.txt") as f:
             if check_part(directions):
                 res += int(n)
             line = line.replace(n, '.' * len(n), 1)
-    print(f"{YEAR}-{DAY} PART 1 in {time.time() - start_time} s")
-    print_1(res)
+    return res
 
 # part 2
 def check_gear(directions, n):
@@ -57,8 +57,7 @@ def check_gear(directions, n):
             return (r, c)
     return None
 
-with open(f"./inputs/{YEAR}_{DAY}.txt") as f:
-    input = (f.read().splitlines())
+def part_2():
     res = 0
     gears = {}
     for row, line in enumerate(input):
@@ -77,5 +76,14 @@ with open(f"./inputs/{YEAR}_{DAY}.txt") as f:
     for k in gears:
         if len(gears[k]) == 2:
             res += gears[k][0] * gears[k][1]
+    return res
+
+# parsing and execution
+with open(f"./inputs/{YEAR}_{DAY}.txt") as f:
+    input = (f.read().splitlines())
+
+    print(f"{YEAR}-{DAY} PART 1 in {time.time() - start_time} s")
+    print_1(part_1())
+    
     print(f"{YEAR}-{DAY} PART 2 in {time.time() - start_time} s")
-    print_2(res)
+    print_2(part_2())

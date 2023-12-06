@@ -2,13 +2,13 @@ import re
 import time
 from utils import print_1, print_2
 
+# setup
 YEAR = 2023
 DAY = 4
 start_time = time.time()
 
 # part 1
-with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
-    input = (f.read().splitlines())
+def part_1():
     res = 0
     for line in input:
         score = 0
@@ -21,12 +21,10 @@ with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
                 else:
                     score = 1
         res += score
-    print(f"{YEAR}-{DAY} PART 1 in {time.time() - start_time} s")
-    print_1(res)
+    return res
 
 # part 2
-with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
-    input = (f.read().splitlines())
+def part_2():
     counter = [1] * len(input)
     for i,line in enumerate(input):
         score = 0
@@ -38,5 +36,14 @@ with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
         for j in range(i+1, i+score+1):
             counter[j] += counter[i]
     res = sum(counter)
+    return res
+
+# parsing and execution
+with open(f"./inputs/{YEAR}_{DAY}.txt" ) as f:
+    input = (f.read().splitlines())
+
+    print(f"{YEAR}-{DAY} PART 1 in {time.time() - start_time} s")
+    print_1(part_1())
+    
     print(f"{YEAR}-{DAY} PART 2 in {time.time() - start_time} s")
-    print_2(res)
+    print_2(part_2())

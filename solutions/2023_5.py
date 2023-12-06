@@ -2,6 +2,7 @@ import time
 from utils import print_1, print_2, download_input
 import os.path
 
+# setup
 YEAR = 2023
 DAY = 5
 start_time = time.time()
@@ -9,6 +10,18 @@ path = f"./inputs/{YEAR}_{DAY}.txt"
 
 if not os.path.isfile(path):
     download_input(YEAR, DAY)
+
+# common
+def parse_input():
+    all_maps = []
+    lines = [l for l in input if l != '']
+    seeds = [int(s) for s in lines[0].split()[1:]]
+    for line in lines[1:]:
+        if 'map' in line:
+            all_maps.append([])
+        else:
+            all_maps[-1].append([int(l) for l in line.split()])
+    return seeds, all_maps
 
 # part 1
 def get_mapping(start, maps):
@@ -21,21 +34,11 @@ def get_mapping(start, maps):
                 break
     return start
 
-with open(path) as f:
-    input = (f.read().splitlines())
+def part_1():
     res = []
-    all_maps = []
-    lines = [l for l in input if l != '']
-    seeds = [int(s) for s in lines[0].split()[1:]]
-    for line in lines[1:]:
-        if 'map' in line:
-            all_maps.append([])
-        else:
-            all_maps[-1].append([int(l) for l in line.split()])
     for s in seeds:
         res.append(get_mapping(s, all_maps))
-    print(f"{YEAR}-{DAY} PART 1 in {time.time() - start_time} s")
-    print_1(min(res))
+    return res
 
 # part 2
 def get_mapping_p2(pairs, maps):
@@ -62,19 +65,21 @@ def get_mapping_p2(pairs, maps):
         tmp = []
     return pairs
 
-with open(path) as f:
-    input = (f.read().splitlines())
+def part_2():
     res = []
-    all_maps = []
-    lines = [l for l in input if l != '']
-    seeds = [int(s) for s in lines[0].split()[1:]]
-    for line in lines[1:]:
-        if 'map' in line:
-            all_maps.append([])
-        else:
-            all_maps[-1].append([int(l) for l in line.split()])
     for i in range(0, len(seeds), 2):
         pairs = [[seeds[i], seeds[i + 1] + seeds[i]]]
         res += get_mapping_p2(pairs, all_maps)
+    return res
+
+# parsing and execution
+with open(path) as f:
+    input = (f.read().splitlines())
+
+    seeds, all_maps = parse_input()
+    
+    print(f"{YEAR}-{DAY} PART 1 in {time.time() - start_time} s")
+    print_1(min(part_1()))
+
     print(f"{YEAR}-{DAY} PART 2 in {time.time() - start_time} s")
-    print_2(min(r[0] for r in res))
+    print_2(min(r[0] for r in part_2()))
