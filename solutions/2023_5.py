@@ -81,5 +81,6 @@ with open(path) as f:
     print_blue(min(part_1()))
     print(f"Completed {YEAR}-{DAY} PART 1 in {time.time() - start_time} s\n")
 
+    start_time = time.time()
     print_purple(min(r[0] for r in part_2()))
     print(f"Completed {YEAR}-{DAY} PART 2 in {time.time() - start_time} s")

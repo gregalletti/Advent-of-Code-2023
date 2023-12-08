@@ -84,6 +84,7 @@ with open(f"./inputs/{YEAR}_{DAY}.txt") as f:
 
     print_blue(part_1())
     print(f"Completed {YEAR}-{DAY} PART 1 in {time.time() - start_time} s\n")
-    
+
+    start_time = time.time()    
     print_purple(part_2())
     print(f"Completed {YEAR}-{DAY} PART 2 in {time.time() - start_time} s")
