@@ -7,7 +7,7 @@ class bcolors:
     ENDC = '\033[0m'
 
 # session cookie taken from browser after login
-SESSION = ""
+SESSION = "53616c7465645f5ffd1d7d3ce20554591df277d338f8d21ad58bdcd23568e106c0db3c5e5d98a2316664e5bd6c8f6bede2d1e29a58fd3c77af65d47f13fd0d6e"
 
 def download_input(year, day):
     url = f"https://adventofcode.com/{year}/day/{day}/input"
@@ -20,3 +20,12 @@ def print_blue(text):
 
 def print_purple(text):
     print(f"{bcolors.OKPURPLE}{text}{bcolors.ENDC}")
+
+def create_solution():
+    YEAR = 2023
+    DAY = 12
+    path = f"./solutions/{YEAR}_{DAY}.py"
+    with open(path, "w") as f:
+        f.write("")
+
+# create_solution()
