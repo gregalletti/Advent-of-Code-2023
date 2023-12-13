@@ -44,6 +44,8 @@ def is_mirror(pattern, r, mirror_range, smudge=0):
         if diff == 0:
             continue
         elif diff == 1 and smudge:
+            if new:
+                return 0
             new = True
             continue
         else:
@@ -70,17 +72,15 @@ def part_2():
         tmp = 0
         found = False
         h = find_horizontal_mirror(pattern, 1)
-
         for t in h:
             if t[1] == 'new':
                 # new line found here, no need to check further
                 found = True
-                res += 100 * t[0]
+                tmp = 100 * t[0]
                 break
             else:
                 # keep the old value for now, replaced if there is a new vertical line
                 tmp = 100 * t[0]
-
         if not found:
             transposed = [''.join(s) for s in zip(*pattern)]
             v = find_horizontal_mirror(transposed, 1)
@@ -88,14 +88,12 @@ def part_2():
                 if t[1] == 'new':
                     # found it
                     found = True
-                    res += t[0]
+                    tmp = t[0]
                     break
                 else:
-                    # keep the old value for now, replaced if there is a new vertical line
+                    # keep the old value
                     tmp = t[0]
-        if not found:
-            res += tmp
-
+        res += tmp
     return res
 
 # parsing and execution
@@ -103,8 +101,8 @@ with open(path) as f:
     input = [line.splitlines() for line in f.read().split("\n\n")]
 
     print_blue(part_1())
-    print(f"Completed {YEAR}-{DAY} PART 1 in {time.time() - start_time} s\n")
+    print(f"Completed {YEAR}-{DAY} PART 1 in {(time.time() - start_time) * 1000} ms\n")
 
     start_time = time.time()
     print_purple(part_2())
-    print(f"Completed {YEAR}-{DAY} PART 2 in {time.time() - start_time} s")
+    print(f"Completed {YEAR}-{DAY} PART 2 in {(time.time() - start_time) * 1000} ms")

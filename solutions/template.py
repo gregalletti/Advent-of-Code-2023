@@ -28,8 +28,8 @@ with open(path) as f:
     input = (f.read().splitlines())
     
     print_blue(part_1())
-    print(f"Completed {YEAR}-{DAY} PART 1 in {time.time() - start_time} s\n")
+    print(f"Completed {YEAR}-{DAY} PART 1 in {(time.time() - start_time) * 1000} ms\n")
 
     start_time = time.time()
     print_purple(part_2())
-    print(f"Completed {YEAR}-{DAY} PART 2 in {time.time() - start_time} s")
+    print(f"Completed {YEAR}-{DAY} PART 2 in {(time.time() - start_time) * 1000} ms")

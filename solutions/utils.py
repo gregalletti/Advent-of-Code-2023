@@ -23,7 +23,7 @@ def print_purple(text):
 
 def create_solution():
     YEAR = 2023
-    DAY = 12
+    DAY = 13
     path = f"./solutions/{YEAR}_{DAY}.py"
     with open(path, "w") as f:
         f.write("")
